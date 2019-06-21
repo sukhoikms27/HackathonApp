@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".features.speaker.SpeakerDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/speakerDetailFrameLayout">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="144dp"
+                android:layout_height="144dp"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginTop="24dp"/>
+
+        <TextView
+                android:id="@+id/speaker"
+                tools:text="Speaker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/profile_image"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/profile_image" android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/profile_image"/>
+
+        <TextView
+                android:id="@+id/tags"
+                tools:text="Tags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/speaker"
+                android:layout_marginStart="8dp"/>
+
+        <TextView
+                android:id="@+id/biography"
+                tools:text="Biography"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="@+id/tags"
+                app:layout_constraintTop_toBottomOf="@+id/tags"
+                android:layout_marginTop="24dp"/>
+
+        <TextView
+                android:id="@+id/events"
+                android:text="@string/events"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/biography"
+                app:layout_constraintStart_toStartOf="@+id/biography"
+                android:textStyle="bold"/>
+
+        <TextView
+                android:id="@+id/historyEvents"
+                tools:text="History-Events"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/events"
+                app:layout_constraintTop_toBottomOf="@+id/events"
+                android:layout_marginTop="24dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
