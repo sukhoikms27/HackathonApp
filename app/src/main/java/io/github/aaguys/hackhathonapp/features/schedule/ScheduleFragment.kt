@@ -30,50 +30,53 @@ class ScheduleFragment : Fragment() {
             about = "blah-blah",
             time = LocalTime.of(21, 30, 59, 11001),
             tags = listOf(Tag("blah", 123)),
-            speaker = Speaker(
-                id = "1",
-                name = "SpeakerName",
-                photoUrl = "",
-                job = "job",
-                info = "simple info",
-                links = null
+            speakers = listOf(
+                Speaker(
+                    id = "1",
+                    name = "SpeakerName",
+                    photoUrl = "",
+                    job = "job",
+                    info = "simple info",
+                    links = null
+                )
             ),
             isFavorite = false,
             room = "room 1"
 
-        ),
-        Event(
+        ), Event(
             id = "1",
             title = "Title of Event",
             about = "blah-blah",
             time = LocalTime.of(21, 30, 59, 11001),
             tags = listOf(Tag("blah", 123)),
-            speaker = Speaker(
-                id = "1",
-                name = "SpeakerName",
-                photoUrl = "",
-                job = "job",
-                info = "simple info",
-                links = null
+            speakers = listOf(
+                Speaker(
+                    id = "1",
+                    name = "SpeakerName",
+                    photoUrl = "",
+                    job = "job",
+                    info = "simple info",
+                    links = null
+                )
             ),
             isFavorite = false,
             room = "room 1"
 
-        ),
-
-        Event(
+        ), Event(
             id = "1",
             title = "Title of Event",
             about = "blah-blah",
             time = LocalTime.of(21, 30, 59, 11001),
             tags = listOf(Tag("blah", 123)),
-            speaker = Speaker(
-                id = "1",
-                name = "SpeakerName",
-                photoUrl = "",
-                job = "job",
-                info = "simple info",
-                links = null
+            speakers = listOf(
+                Speaker(
+                    id = "1",
+                    name = "SpeakerName",
+                    photoUrl = "",
+                    job = "job",
+                    info = "simple info",
+                    links = null
+                )
             ),
             isFavorite = false,
             room = "room 1"

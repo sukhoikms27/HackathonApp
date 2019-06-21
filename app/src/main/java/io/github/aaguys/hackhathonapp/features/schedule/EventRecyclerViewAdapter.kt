@@ -67,7 +67,7 @@ class EventRecyclerViewAdapter(
             itemView.apply {
                 event_time.text = event.time.toString() //fixme
                 event_title.text = event.title
-                event_speaker.text = event.speaker.name
+                event_speaker.text = event.speakers.first().name
                 event_tags.text = event.tags.first().name
             }
         }
