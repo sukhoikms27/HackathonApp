@@ -8,7 +8,7 @@ data class Event(
     val about: String,
     val time: LocalTime,
     val room: String,
-    val speaker: Speaker,
+    val speakers: List<Speaker>,
     val tags: List<Tag>,
     val isFavorite: Boolean
 )
