@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="8dp"
+>
+
+    <TextView
+            android:text="18:00"
+            android:layout_width="64dp"
+            android:layout_height="0dp"
+            android:id="@+id/event_time"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:text="Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_title"
+            app:layout_constraintStart_toEndOf="@+id/event_time"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/favorites"/>
+    <TextView
+            android:text="Speaker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_speaker"
+            app:layout_constraintStart_toStartOf="@+id/event_title"
+            app:layout_constraintTop_toBottomOf="@+id/event_title" app:layout_constraintEnd_toStartOf="@+id/favorites"
+            android:layout_marginEnd="8dp"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/favorites"
+            app:srcCompat="@android:drawable/btn_star"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:text="Tags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_favorite"
+            app:layout_constraintTop_toBottomOf="@+id/event_speaker"
+            app:layout_constraintStart_toStartOf="@+id/event_title"
+            app:layout_constraintEnd_toStartOf="@+id/favorites"
+            android:layout_marginEnd="8dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
