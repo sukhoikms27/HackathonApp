@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity(), ScheduleFragment.OnEventClickListener 
             fragment = createFragment()
             supportFragmentManager.inTransaction { add(R.id.fragment_container, fragment, "eventList") }
         }
+
     }
 
     override fun onEventClickListener(eventId: String) {
