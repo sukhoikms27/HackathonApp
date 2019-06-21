@@ -10,6 +10,8 @@ import io.github.aaguys.hackhathonapp.common.Event
 import io.github.aaguys.hackhathonapp.dummy.DummyContent.DummyItem
 import io.github.aaguys.hackhathonapp.features.schedule.ScheduleFragment.OnListFragmentInteractionListener
 import kotlinx.android.synthetic.main.event_details_fragment.view.*
+import kotlinx.android.synthetic.main.event_details_fragment.view.event_tags
+import kotlinx.android.synthetic.main.fragment_event.view.*
 import kotlinx.android.synthetic.main.fragment_event.view.event_speaker
 import kotlinx.android.synthetic.main.fragment_event.view.event_time
 import kotlinx.android.synthetic.main.fragment_event.view.event_title
