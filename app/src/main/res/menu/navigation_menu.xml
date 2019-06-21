@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+            android:id="@+id/action_information"
+            android:enabled="true"
+            android:icon="@drawable/ic_information"
+            android:title="@string/info"
+            app:showAsAction="ifRoom"/>
+
+    <item
+            android:id="@+id/action_schedules"
+            android:enabled="true"
+            android:icon="@drawable/ic_dashboard_schedule"
+            android:title="@string/schedule"
+            app:showAsAction="ifRoom"/>
+
+    <item
+            android:id="@+id/action_favorites"
+            android:enabled="true"
+            android:icon="@drawable/ic_favorites"
+            android:title="@string/favorites"
+            app:showAsAction="ifRoom"/>
+
+</menu>
