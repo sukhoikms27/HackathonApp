@@ -9,6 +9,8 @@ import android.view.ViewGroup
 
 import io.github.aaguys.hackhathonapp.R
 import io.github.aaguys.hackhathonapp.common.Event
+import io.github.aaguys.hackhathonapp.data.Repo
+import io.github.aaguys.hackhathonapp.use_cases.GetEventByIdUseCase
 import kotlinx.android.synthetic.main.event_details_fragment.*
 
 class EventDetailsFragment : Fragment() {
@@ -47,7 +49,9 @@ class EventDetailsFragment : Fragment() {
     }
 
     fun displayEventInfo(eventId: String) {
-        val event = ScheduleFragment().eventsMock.find { it.id == eventId }
+        val event = GetEventByIdUseCase(Repo(), eventId).event
+//        val event = ScheduleFragment().eventsMock.find { it.id == eventId }
+
         event?.let {
             event_title.text = it.title
             event_speaker.text = it.speakers.first().name
