@@ -1,6 +1,7 @@
 package io.github.aaguys.hackhathonapp.common
 
-import java.time.LocalTime
+import org.threeten.bp.LocalTime
+
 
 data class Event(
     val id: String,

@@ -13,7 +13,8 @@ import io.github.aaguys.hackhathonapp.common.Event
 import io.github.aaguys.hackhathonapp.common.Speaker
 import io.github.aaguys.hackhathonapp.common.Tag
 import kotlinx.android.synthetic.main.fragment_event_list.*
-import java.time.LocalTime
+import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalTime
 
 /**
  * A fragment representing a list of Items.
@@ -22,13 +23,12 @@ import java.time.LocalTime
  */
 class ScheduleFragment : Fragment() {
 
-    @SuppressLint("NewApi")
     val eventsMock = listOf(
         Event(
             id = "1",
             title = "Title of Event",
             about = "blah-blah",
-            time = LocalTime.of(21, 30, 59, 11001),
+            time = LocalTime.of(18, 30),
             tags = listOf(Tag("blah", 123)),
             speakers = listOf(
                 Speaker(
@@ -47,7 +47,7 @@ class ScheduleFragment : Fragment() {
             id = "1",
             title = "Title of Event",
             about = "blah-blah",
-            time = LocalTime.of(21, 30, 59, 11001),
+            time = LocalTime.of(18, 30),
             tags = listOf(Tag("blah", 123)),
             speakers = listOf(
                 Speaker(
@@ -66,7 +66,7 @@ class ScheduleFragment : Fragment() {
             id = "1",
             title = "Title of Event",
             about = "blah-blah",
-            time = LocalTime.of(21, 30, 59, 11001),
+            time = LocalTime.of(18, 30),
             tags = listOf(Tag("blah", 123)),
             speakers = listOf(
                 Speaker(
