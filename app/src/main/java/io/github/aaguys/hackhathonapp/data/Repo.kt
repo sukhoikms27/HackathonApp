@@ -6,8 +6,8 @@ import io.github.aaguys.hackhathonapp.common.Speaker
 
 class Repo {
 
-    val Schedule: LiveData<List<Event>>
-    val Favorites: LiveData<List<Event>>
+//    val Schedule: LiveData<List<Event>>
+//    val Favorites: LiveData<List<Event>>
 
     fun updateSchedule() {
     }

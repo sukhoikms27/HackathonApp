@@ -43,7 +43,7 @@
             android:text="Tags"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/event_favorite"
+            android:id="@+id/event_tags"
             app:layout_constraintTop_toBottomOf="@+id/event_speaker"
             app:layout_constraintStart_toStartOf="@+id/event_title"
             app:layout_constraintEnd_toStartOf="@+id/favorites"
