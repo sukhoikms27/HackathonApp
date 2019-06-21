@@ -1,18 +1,19 @@
 package io.github.aaguys.hackhathonapp.features.schedule
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import io.github.aaguys.hackhathonapp.R
-
-import io.github.aaguys.hackhathonapp.dummy.DummyContent
-import io.github.aaguys.hackhathonapp.dummy.DummyContent.DummyItem
+import io.github.aaguys.hackhathonapp.common.Event
+import io.github.aaguys.hackhathonapp.common.Speaker
+import io.github.aaguys.hackhathonapp.common.Tag
+import kotlinx.android.synthetic.main.fragment_event_list.*
+import java.time.LocalTime
 
 /**
  * A fragment representing a list of Items.
@@ -21,9 +22,72 @@ import io.github.aaguys.hackhathonapp.dummy.DummyContent.DummyItem
  */
 class ScheduleFragment : Fragment() {
 
+    @SuppressLint("NewApi")
+    val eventsMock = listOf(
+        Event(
+            id = "1",
+            title = "Title of Event",
+            about = "blah-blah",
+            time = LocalTime.of(21, 30, 59, 11001),
+            tags = listOf(Tag("blah", 123)),
+            speakers = listOf(
+                Speaker(
+                    id = "1",
+                    name = "SpeakerName",
+                    photoUrl = "",
+                    job = "job",
+                    info = "simple info",
+                    links = null
+                )
+            ),
+            isFavorite = false,
+            room = "room 1"
+
+        ), Event(
+            id = "1",
+            title = "Title of Event",
+            about = "blah-blah",
+            time = LocalTime.of(21, 30, 59, 11001),
+            tags = listOf(Tag("blah", 123)),
+            speakers = listOf(
+                Speaker(
+                    id = "1",
+                    name = "SpeakerName",
+                    photoUrl = "",
+                    job = "job",
+                    info = "simple info",
+                    links = null
+                )
+            ),
+            isFavorite = false,
+            room = "room 1"
+
+        ), Event(
+            id = "1",
+            title = "Title of Event",
+            about = "blah-blah",
+            time = LocalTime.of(21, 30, 59, 11001),
+            tags = listOf(Tag("blah", 123)),
+            speakers = listOf(
+                Speaker(
+                    id = "1",
+                    name = "SpeakerName",
+                    photoUrl = "",
+                    job = "job",
+                    info = "simple info",
+                    links = null
+                )
+            ),
+            isFavorite = false,
+            room = "room 1"
+
+        )
+    )
+
+
     // TODO: Customize parameters
     private var columnCount = 1
-
+    private lateinit var eventsAdapter: EventRecyclerViewAdapter
     private var listener: OnListFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,26 +98,22 @@ class ScheduleFragment : Fragment() {
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        events_recycler_view.apply {
+            layoutManager = LinearLayoutManager(activity)
+            eventsAdapter = EventRecyclerViewAdapter(listener)
+            adapter = eventsAdapter
+        }
+        eventsAdapter.setItems(eventsMock)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_event_list, container, false)
-
-        // Set the adapter
-        if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = EventRecyclerViewAdapter(
-                    DummyContent.ITEMS,
-                    listener
-                )
-            }
-        }
-        return view
+        retainInstance = true
+        return inflater.inflate(R.layout.fragment_event_list, container, false)
     }
 
     override fun onAttach(context: Context) {
@@ -61,7 +121,7 @@ class ScheduleFragment : Fragment() {
         if (context is OnListFragmentInteractionListener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
+            throw RuntimeException("$context must implement OnListFragmentInteractionListener")
         }
     }
 
@@ -70,20 +130,9 @@ class ScheduleFragment : Fragment() {
         listener = null
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson
-     * [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
     interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onListFragmentInteraction(item: DummyItem?)
+        fun onListFragmentInteraction(event: Event)
     }
 
     companion object {
