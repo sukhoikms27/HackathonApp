@@ -1,5 +1,8 @@
 package io.github.aaguys.hackhathonapp.common
 
+import androidx.room.Entity
+
+@Entity
 data class AboutConfData(
     val name:String,
     val year: Int,

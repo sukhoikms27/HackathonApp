@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 
 import io.github.aaguys.hackhathonapp.R
 import io.github.aaguys.hackhathonapp.common.Event
@@ -40,12 +41,8 @@ class EventDetailsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(EventDetailsViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+        viewModel.scheduler.observe(this, Observer { displayEventInfo(eventId) })
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        displayEventInfo(eventId)
-        super.onViewCreated(view, savedInstanceState)
     }
 
     fun displayEventInfo(eventId: String) {
