@@ -99,7 +99,7 @@ class EventDetailsFragment : Fragment() {
 
             author_photo.setOnClickListener {
                 //val speakerId =  event?.speakers?.first()?.id //Получить рабочий ID
-                listenerSpeakerDetails?.onSpeakerClickListener("speakerID")
+                listenerSpeakerDetails?.onSpeakerClickListener(eventId)
             }
 
         }

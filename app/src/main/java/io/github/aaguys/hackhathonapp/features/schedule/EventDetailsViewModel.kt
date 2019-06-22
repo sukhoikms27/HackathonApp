@@ -12,5 +12,5 @@ class EventDetailsViewModel : ViewModel() {
     val scheduler: LiveData<List<Event>> = Repo.schedule
 
     fun getEvent(eventId:String) = GetEventByIdUseCase(Repo, eventId).event
-fun reload() = repo.updateConfDataFromNet()
+    fun reload() = repo.updateConfDataFromNet()
 }
