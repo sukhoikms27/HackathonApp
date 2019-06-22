@@ -40,6 +40,7 @@ val r =Transformations.map(netDP.dataFromNet) { it.toConfData().events }
 
     fun updateConfDataFromNet(){
         netDP.updateConfDataFromNet()
+        Log.d("1233","request for update")
     }
 
 
