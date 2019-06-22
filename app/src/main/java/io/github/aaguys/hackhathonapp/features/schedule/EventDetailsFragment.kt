@@ -18,6 +18,11 @@ import io.github.aaguys.hackhathonapp.common.Event
 import io.github.aaguys.hackhathonapp.data.Repo
 import io.github.aaguys.hackhathonapp.use_cases.GetEventByIdUseCase
 import kotlinx.android.synthetic.main.event_details_fragment.*
+import kotlinx.android.synthetic.main.event_details_fragment.event_speaker
+import kotlinx.android.synthetic.main.event_details_fragment.event_tags
+import kotlinx.android.synthetic.main.event_details_fragment.event_time
+import kotlinx.android.synthetic.main.event_details_fragment.event_title
+import kotlinx.android.synthetic.main.fragment_event.*
 import org.threeten.bp.format.DateTimeFormatter
 import java.util.*
 
@@ -94,6 +99,7 @@ class EventDetailsFragment : Fragment() {
             event_room.text = "Зал ${it.room}"
             event_description.text = it.about
             event_tags.text = it.tags.first().name
+            //tags.ser
 
             author_photo.setOnClickListener {
                 //val speakerId =  event?.speakers?.first()?.id //Получить рабочий ID
