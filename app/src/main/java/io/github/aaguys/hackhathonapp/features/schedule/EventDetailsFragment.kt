@@ -77,9 +77,7 @@ class EventDetailsFragment : Fragment() {
 
     fun displayEventInfo(eventId: String) {
 
-        Log.d("222333", " id $eventId  title ${viewModel.getEvent(eventId)?.title}  ${viewModel.scheduler.value?.size}")
         val ev = viewModel.scheduler.value?.find { it.id == eventId }
-        Log.d("222333", " id ${ev?.id} ${ev?.speakers?.first()?.photoUrl}")
 
         ev?.let {
             val speakersUrl = it.speakers[0].photoUrl.toUri()
@@ -98,8 +96,7 @@ class EventDetailsFragment : Fragment() {
             //tags.ser
 
             author_photo.setOnClickListener {
-                //val speakerId =  event?.speakers?.first()?.id //Получить рабочий ID
-                listenerSpeakerDetails?.onSpeakerClickListener("speakerID")
+                listenerSpeakerDetails?.onSpeakerClickListener(eventId)
             }
 
         }
