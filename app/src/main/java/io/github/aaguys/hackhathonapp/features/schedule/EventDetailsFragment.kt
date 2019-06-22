@@ -51,24 +51,19 @@ class EventDetailsFragment : Fragment() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-
-    }
-
     fun displayEventInfo(eventId: String) {
 
-        Log.d("222333"," id $eventId  title ${viewModel.getEvent(eventId)?.title}  ${viewModel.scheduler.value?.size}")
-        val ev = viewModel.scheduler.value?.find { it.id== eventId}
-        Log.d("222333"," id ${ev?.id} ${ev?.speakers?.first()?.photoUrl}")
+        Log.d("222333", " id $eventId  title ${viewModel.getEvent(eventId)?.title}  ${viewModel.scheduler.value?.size}")
+        val ev = viewModel.scheduler.value?.find { it.id == eventId }
+        Log.d("222333", " id ${ev?.id} ${ev?.speakers?.first()?.photoUrl}")
 
-            ev?.let {
-                val speakersUrl=it.speakers[0].photoUrl.toUri()
-                Glide
-                    .with(this)
-                    .load(speakersUrl)
-                   //.apply(RequestOptions.)
-                    .into(author_photo)
+        ev?.let {
+            val speakersUrl = it.speakers[0].photoUrl.toUri()
+            Glide
+                .with(this)
+                .load(speakersUrl)
+                //.apply(RequestOptions.)
+                .into(author_photo)
 
             event_title.text = it.title
             event_speaker.text = it.speakers.first().name
