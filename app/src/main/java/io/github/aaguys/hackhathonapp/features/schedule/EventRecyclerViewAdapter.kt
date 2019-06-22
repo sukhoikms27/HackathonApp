@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.event_details_fragment.view.event_tags
 import kotlinx.android.synthetic.main.fragment_event.view.event_speaker
 import kotlinx.android.synthetic.main.fragment_event.view.event_time
 import kotlinx.android.synthetic.main.fragment_event.view.event_title
+import org.threeten.bp.format.DateTimeFormatter
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
@@ -73,7 +74,7 @@ class EventRecyclerViewAdapter(
 
         fun bind(event: Event) {
             itemView.apply {
-                event_time.text = event.time.toString() //fixme
+                event_time.text = event.time.format(DateTimeFormatter.ofPattern("HH:mm"))
                 event_title.text = event.title
                 event_speaker.text = event.speakers.first().name
                 event_tags.text = event.tags.first().name
