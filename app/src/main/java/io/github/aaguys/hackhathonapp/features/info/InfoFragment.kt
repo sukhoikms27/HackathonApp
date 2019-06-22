@@ -17,8 +17,11 @@ import android.net.Uri
 import android.widget.TextView
 import io.github.aaguys.hackhathonapp.R
 import androidx.core.content.ContextCompat.startActivity
-
-
+import com.bumptech.glide.Glide
+import android.graphics.drawable.PictureDrawable
+import androidx.core.view.ViewCompat.animate
+import com.bumptech.glide.load.model.StreamEncoder
+import java.io.InputStream
 
 
 class InfoFragment : Fragment() {

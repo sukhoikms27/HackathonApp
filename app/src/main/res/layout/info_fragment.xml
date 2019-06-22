@@ -3,24 +3,28 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:layout_margin="8dp"
         android:layout_height="match_parent"
-        tools:context=".features.info.InfoFragment">
+        tools:context=".features.info.InfoFragment"
+>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/alert_dark_frame"
+                android:layout_width="47dp"
+                android:layout_height="23dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/logo"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:id="@+id/info_logo"/>
         <TextView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:text="Hello"
+                android:layout_marginStart="8dp"
+                android:text="Info title"
                 android:id="@+id/info_title"
                 app:layout_constraintStart_toEndOf="@id/info_logo"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -31,6 +35,7 @@
                 android:text="TextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:id="@+id/info_about"
                 app:layout_constraintTop_toBottomOf="@+id/info_title"
                 app:layout_constraintStart_toStartOf="parent"
