@@ -13,8 +13,7 @@
              app:layout_constraintStart_toStartOf="parent"
              app:layout_constraintEnd_toEndOf="parent"
              android:background="@color/orange"
-             android:id="@+id/toolbar"
-    >
+             android:id="@+id/toolbar">
 
         <ImageView
                 android:src="@drawable/logo"

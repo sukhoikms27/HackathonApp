@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProviders
 
 import io.github.aaguys.hackhathonapp.R
+import io.github.aaguys.hackhathonapp.features.schedule.SchedulerViewModel
 import kotlinx.android.synthetic.main.fragment_speaker_detail.*
 
 /**
@@ -17,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_speaker_detail.*
 class SpeakerDetailFragment : Fragment() {
 
     lateinit var speakerId: String
+    private lateinit var viewModel: SpeakerDetailViewModel
 
     companion object {
         private const val SPEAKER = "speaker"
@@ -31,6 +34,8 @@ class SpeakerDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        viewModel = ViewModelProviders.of(this).get(SpeakerDetailViewModel::class.java)
         speakerId = arguments!!.getString(SPEAKER) as String
 
         return inflater.inflate(R.layout.fragment_speaker_detail, container, false)
@@ -38,7 +43,11 @@ class SpeakerDetailFragment : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        speaker.text = "HELLO"
+
+
+        //shedule.value.find {it.id == eventId}
+
+        speaker.text = ""
         biography.text = "HELLO WORDL"
 
         super.onViewCreated(view, savedInstanceState)

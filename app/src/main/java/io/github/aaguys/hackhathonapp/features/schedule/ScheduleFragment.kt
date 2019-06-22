@@ -26,8 +26,6 @@ import org.threeten.bp.LocalTime
 class ScheduleFragment : Fragment() {
 
 
-
-
     private lateinit var viewModel:SchedulerViewModel
 
 
@@ -38,7 +36,6 @@ class ScheduleFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
         }

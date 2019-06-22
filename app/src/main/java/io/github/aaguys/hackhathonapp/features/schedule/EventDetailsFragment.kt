@@ -1,5 +1,6 @@
 package io.github.aaguys.hackhathonapp.features.schedule
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.util.Log
@@ -21,6 +22,8 @@ import kotlinx.android.synthetic.main.event_details_fragment.*
 class EventDetailsFragment : Fragment() {
 
     lateinit var eventId: String
+    private var listenerSpeakerDetails: OnSpeakerClickListener? = null
+
 
     companion object {
         private const val EVENT = "event"
@@ -30,6 +33,10 @@ class EventDetailsFragment : Fragment() {
             val args = Bundle().apply { putString(EVENT, eventId) }
             return EventDetailsFragment().apply { arguments = args }
         }
+    }
+
+    interface OnSpeakerClickListener {
+        fun onSpeakerClickListener(speakerId: String)
     }
 
     private lateinit var viewModel: EventDetailsViewModel
@@ -49,6 +56,20 @@ class EventDetailsFragment : Fragment() {
         displayEventInfo(eventId)
         viewModel.scheduler.observe(this, Observer { displayEventInfo(eventId) })
 
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnSpeakerClickListener) {
+            listenerSpeakerDetails = context
+        } else {
+            throw RuntimeException("$context must implement OnEventClickListener")
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listenerSpeakerDetails = null
     }
 
     fun displayEventInfo(eventId: String) {
@@ -71,6 +92,12 @@ class EventDetailsFragment : Fragment() {
             event_room.text = "Room ${it.room}"
             event_description.text = it.about
             event_tags.text = it.tags.first().name
+
+            author_photo.setOnClickListener {
+                //val speakerId =  event?.speakers?.first()?.id //Получить рабочий ID
+                listenerSpeakerDetails?.onSpeakerClickListener("speakerID")
+            }
+
         }
 
     }
