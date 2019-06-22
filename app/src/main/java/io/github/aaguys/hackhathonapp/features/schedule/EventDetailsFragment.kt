@@ -42,10 +42,6 @@ class EventDetailsFragment : Fragment() {
         }
     }
 
-    interface OnSpeakerClickListener {
-        fun onSpeakerClickListener(speakerId: String)
-    }
-
     private lateinit var viewModel: EventDetailsViewModel
 
     override fun onCreateView(
