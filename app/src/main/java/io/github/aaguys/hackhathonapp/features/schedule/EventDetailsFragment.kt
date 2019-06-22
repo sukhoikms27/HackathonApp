@@ -49,7 +49,7 @@ class EventDetailsFragment : Fragment() {
     }
 
     fun displayEventInfo(eventId: String) {
-        val event = GetEventByIdUseCase(Repo(), eventId).event
+        val event = GetEventByIdUseCase(Repo, eventId).event
 //        val event = ScheduleFragment().eventsMock.find { it.id == eventId }
 
         event?.let {

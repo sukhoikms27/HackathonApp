@@ -6,7 +6,7 @@ data class Speaker(
     val photoUrl: String,
     val job: String,
     val info: String,
-    val links: Links?
+    val links: Links?=null
 )
 
 data class Links(
