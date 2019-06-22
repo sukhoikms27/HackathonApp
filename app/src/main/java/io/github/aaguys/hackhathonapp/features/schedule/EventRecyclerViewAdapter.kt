@@ -1,19 +1,23 @@
 package io.github.aaguys.hackhathonapp.features.schedule
 
 
+import android.graphics.PorterDuff
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.getDrawable
+import androidx.core.graphics.alpha
+import androidx.core.graphics.toColorInt
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.chip.Chip
 import io.github.aaguys.hackhathonapp.R
+import io.github.aaguys.hackhathonapp.common.ColorProvider
 import io.github.aaguys.hackhathonapp.common.Event
 import io.github.aaguys.hackhathonapp.dummy.DummyContent.DummyItem
 import io.github.aaguys.hackhathonapp.features.schedule.ScheduleFragment.OnEventClickListener
-import kotlinx.android.synthetic.main.event_details_fragment.view.event_tags
-import kotlinx.android.synthetic.main.fragment_event.view.event_speaker
-import kotlinx.android.synthetic.main.fragment_event.view.event_time
-import kotlinx.android.synthetic.main.fragment_event.view.event_title
+import kotlinx.android.synthetic.main.fragment_event.view.*
 import org.threeten.bp.format.DateTimeFormatter
 
 /**
@@ -77,7 +81,19 @@ class EventRecyclerViewAdapter(
                 event_time.text = event.time.format(DateTimeFormatter.ofPattern("HH:mm"))
                 event_title.text = event.title
                 event_speaker.text = event.speakers.first().name
-                event_tags.text = event.tags.first().name
+                event.tags.forEach {
+                    val iconChip = getDrawable(context, R.drawable.shape_oval)
+                    iconChip!!.mutate().setColorFilter(ColorProvider.getColor(it.name), PorterDuff.Mode.SRC_IN)
+
+                    val chip = Chip(context).apply {
+                        text = it.name.capitalize()
+                        chipIcon = iconChip
+                        setChipIconSizeResource(R.dimen.text_margin)
+                        setIconStartPaddingResource(R.dimen.small_margin_size)
+
+                    }
+                    event_tags.addView(chip)
+                }
             }
         }
     }
