@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity(), ScheduleFragment.OnEventClickListener 
             }
             else -> false
         }
+
     }
 
 
@@ -54,9 +55,16 @@ class MainActivity : AppCompatActivity(), ScheduleFragment.OnEventClickListener 
     }
 
     private fun openFragment(fragment: Fragment) {
-        supportFragmentManager.inTransaction {
-            replace(R.id.container, fragment)
-        }
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+            if (fragment !is ScheduleFragment)
+                supportFragmentManager.inTransaction {
+                    replace(R.id.container, fragment)
+                }
+        } else
+            supportFragmentManager.inTransaction {
+                replace(R.id.container, fragment)
+            }
     }
 }
 
