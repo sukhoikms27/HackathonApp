@@ -11,5 +11,5 @@ data class Event(
     val room: String,
     val speakers: List<Speaker>,
     val tags: List<Tag>,
-    val isFavorite: Boolean?
+    var isFavorite: Boolean?
 )

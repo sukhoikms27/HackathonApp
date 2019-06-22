@@ -1,8 +1,7 @@
-package io.github.aaguys.hackhathonapp.features.schedule
+package io.github.aaguys.hackhathonapp.features.favorites
 
 
 import android.graphics.PorterDuff
-import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.github.aaguys.hackhathonapp.R
 import io.github.aaguys.hackhathonapp.common.Event
 import io.github.aaguys.hackhathonapp.dummy.DummyContent.DummyItem
+import io.github.aaguys.hackhathonapp.features.schedule.ItemDiffCallback
 import io.github.aaguys.hackhathonapp.features.schedule.ScheduleFragment.OnEventClickListener
 import kotlinx.android.synthetic.main.event_details_fragment.view.event_tags
 import kotlinx.android.synthetic.main.fragment_event.view.*
@@ -21,9 +21,9 @@ import org.threeten.bp.format.DateTimeFormatter
  * specified [OnEventClickListener].
  * TODO: Replace the implementation with code for your data type.
  */
-class EventRecyclerViewAdapter(
+class FavoritesRecyclerViewAdapter(
     mListener: OnEventClickListener?
-) : RecyclerView.Adapter<EventRecyclerViewAdapter.EventViewHolder>() {
+) : RecyclerView.Adapter<FavoritesRecyclerViewAdapter.EventViewHolder>() {
 
     private val eventsList = mutableListOf<Event>()
     private val onEventClickListener = mListener
