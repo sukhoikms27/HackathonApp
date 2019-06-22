@@ -4,6 +4,7 @@ package io.github.aaguys.hackhathonapp.features.schedule
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import io.github.aaguys.hackhathonapp.R
 import io.github.aaguys.hackhathonapp.common.Event
@@ -23,7 +24,7 @@ class EventRecyclerViewAdapter(
     mListener: OnEventClickListener?
 ) : RecyclerView.Adapter<EventRecyclerViewAdapter.EventViewHolder>() {
 
-    private val eventsList = ArrayList<Event>()
+    private val eventsList = mutableListOf<Event>()
     private val onEventClickListener = mListener
 
     init {
@@ -43,13 +44,22 @@ class EventRecyclerViewAdapter(
         holder.bind(eventsList[position])
     }
 
-    fun setItems(events: Collection<Event>) {
+    fun setItems(events: List<Event>) {
         eventsList.addAll(events)
         notifyDataSetChanged()
     }
 
-    fun getItems(): Collection<Event> {
+    fun getItems(): List<Event> {
         return eventsList
+    }
+
+    fun updateData(newItems: List<Event>) {
+        val diffCallback = ItemDiffCallback(eventsList, newItems)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        eventsList.clear()
+        eventsList.addAll(newItems)
+        diffResult.dispatchUpdatesTo(this)
+        notifyDataSetChanged()
     }
 
     inner class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

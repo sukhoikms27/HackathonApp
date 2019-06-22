@@ -73,17 +73,17 @@ data class ConfDataResponse(
         @SerializedName("info")
         val info: String,
         @SerializedName("links")
-        val links: Links
+        val links: Links?=null
     ) {
         data class Links(
             @SerializedName("twitter")
-            val twitter: String,
+            val twitter: String?=null,
             @SerializedName("telegram")
-            val telegram: String,
+            val telegram: String?=null,
             @SerializedName("site")
-            val site: String,
+            val site: String?=null,
             @SerializedName("email")
-            val email: String
+            val email: String?=null
         )
     }
 }

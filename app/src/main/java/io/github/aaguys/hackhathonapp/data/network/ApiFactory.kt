@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ApiFactory {
     private fun retrofit(): Retrofit = Retrofit.Builder()
         //.client(OkHttpClient().newBuilder().build())
-        .baseUrl("https://yadi.sk/i/CetoLjrwFatxXw/")
+        .baseUrl("https://api.myjson.com/bins/")
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()

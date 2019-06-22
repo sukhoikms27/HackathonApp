@@ -12,12 +12,15 @@ fun ConfDataResponse.toConfData(): ConfData {
             it.photoUrl,
             it.job,
             it.info,
-            Links(
-                it.links.twitter,
-                it.links.telegram,
-                it.links.site,
-                it.links.email
-            )
+            it.links?.let { link ->
+                Links(
+                    link.twitter,
+                    link.telegram,
+                    link.site,
+                    link.email
+                )
+            }
+
         )
     }
 
