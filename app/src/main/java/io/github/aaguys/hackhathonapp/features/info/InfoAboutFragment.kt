@@ -32,6 +32,10 @@ class InfoAboutFragment : Fragment() {
         fillData()
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
+
     private fun fillData() {
         val aboutConfData = getTestData()
         info_about.text = aboutConfData.about

@@ -31,11 +31,10 @@ class InfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (savedInstanceState == null) {
-            var pagerAdapter = InfoPagerAdapter(activity?.supportFragmentManager!!, getTestData())
-            info_container.adapter = pagerAdapter
-            info_navigation.setupWithViewPager(info_container)
-        }
+        var pagerAdapter = InfoPagerAdapter(childFragmentManager, getTestData())
+        info_container.adapter = pagerAdapter
+        info_navigation.setupWithViewPager(info_container)
+        info_container.currentItem = 0
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

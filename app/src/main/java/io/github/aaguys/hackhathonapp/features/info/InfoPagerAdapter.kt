@@ -12,7 +12,7 @@ class InfoPagerAdapter(fragmentManager: FragmentManager, val aboutConfData: Abou
     private val tabTitles = arrayOf("Общее", "Правила", "Контакты")
 
     override fun getItem(position: Int): Fragment {
-        var result =
+        val result =
         when (position) {
             1 -> InfoRulesFragment()
             2 -> InfoContactsFragment()
