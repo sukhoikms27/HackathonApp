@@ -109,4 +109,8 @@ class EventDetailsFragment : Fragment() {
         }
 
     }
+
+    interface OnSpeakerClickListener {
+        fun onSpeakerClickListener(speakerId: String)
+    }
 }

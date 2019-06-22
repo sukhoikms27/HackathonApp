@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import io.github.aaguys.hackhathonapp.features.favorites.FavoritesFragment
 import io.github.aaguys.hackhathonapp.features.info.InfoFragment
 import io.github.aaguys.hackhathonapp.features.schedule.EventDetailsFragment
 import io.github.aaguys.hackhathonapp.features.schedule.ScheduleFragment
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity(), ScheduleFragment.OnEventClickListener,
                 true
             }
             R.id.action_favorites -> {
-                openFragment(ScheduleFragment())
+                openFragment(FavoritesFragment())
                 true
             }
             else -> false
