@@ -24,66 +24,66 @@ import org.threeten.bp.LocalTime
  */
 class ScheduleFragment : Fragment() {
 
-    val eventsMock = listOf(
-        Event(
-            id = "1",
-            title = "Title of Event",
-            about = "blah-blah",
-            time = LocalTime.of(18, 30),
-            tags = listOf(Tag("blah", 123)),
-            speakers = listOf(
-                Speaker(
-                    id = "1",
-                    name = "SpeakerName",
-                    photoUrl = "",
-                    job = "job",
-                    info = "simple info",
-                    links = null
-                )
-            ),
-            isFavorite = false,
-            room = "room 1"
-
-        ), Event(
-            id = "2",
-            title = "Title of Event",
-            about = "blah-blah",
-            time = LocalTime.of(18, 30),
-            tags = listOf(Tag("blah", 123)),
-            speakers = listOf(
-                Speaker(
-                    id = "1",
-                    name = "SpeakerName",
-                    photoUrl = "",
-                    job = "job",
-                    info = "simple info",
-                    links = null
-                )
-            ),
-            isFavorite = false,
-            room = "room 1"
-
-        ), Event(
-            id = "3",
-            title = "Title of Event",
-            about = "blah-blah",
-            time = LocalTime.of(18, 30),
-            tags = listOf(Tag("blah", 123)),
-            speakers = listOf(
-                Speaker(
-                    id = "1",
-                    name = "SpeakerName",
-                    photoUrl = "",
-                    job = "job",
-                    info = "simple info",
-                    links = null
-                )
-            ),
-            isFavorite = false,
-            room = "room 1"
-
-        )
-    )
+//    val eventsMock = listOf(
+//        Event(
+//            id = "1",
+//            title = "Title of Event",
+//            about = "blah-blah",
+//            time = LocalTime.of(18, 30),
+//            tags = listOf(Tag("blah", 123)),
+//            speakers = listOf(
+//                Speaker(
+//                    id = "1",
+//                    name = "SpeakerName",
+//                    photoUrl = "",
+//                    job = "job",
+//                    info = "simple info",
+//                    links = null
+//                )
+//            ),
+//            isFavorite = false,
+//            room = "room 1"
+//
+//        ), Event(
+//            id = "2",
+//            title = "Title of Event",
+//            about = "blah-blah",
+//            time = LocalTime.of(18, 30),
+//            tags = listOf(Tag("blah", 123)),
+//            speakers = listOf(
+//                Speaker(
+//                    id = "1",
+//                    name = "SpeakerName",
+//                    photoUrl = "",
+//                    job = "job",
+//                    info = "simple info",
+//                    links = null
+//                )
+//            ),
+//            isFavorite = false,
+//            room = "room 1"
+//
+//        ), Event(
+//            id = "3",
+//            title = "Title of Event",
+//            about = "blah-blah",
+//            time = LocalTime.of(18, 30),
+//            tags = listOf(Tag("blah", 123)),
+//            speakers = listOf(
+//                Speaker(
+//                    id = "1",
+//                    name = "SpeakerName",
+//                    photoUrl = "",
+//                    job = "job",
+//                    info = "simple info",
+//                    links = null
+//                )
+//            ),
+//            isFavorite = false,
+//            room = "room 1"
+//
+//        )
+//    )
 
 
     // TODO: Customize parameters
@@ -106,7 +106,7 @@ class ScheduleFragment : Fragment() {
             eventsAdapter = EventRecyclerViewAdapter(listener)
             adapter = eventsAdapter
         }
-        GetEventByIdUseCase(Repo(), "null").events?.let { eventsAdapter.setItems(it) } ?: Toast.makeText(
+        GetEventByIdUseCase(Repo, "null").events?.let { eventsAdapter.setItems(it) } ?: Toast.makeText(
             context,
             "Sorry, something wrong",
             Toast.LENGTH_SHORT
