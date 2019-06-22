@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat.getDrawable
 import androidx.core.graphics.alpha
 import androidx.core.graphics.toColorInt
+import androidx.core.view.children
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
@@ -87,6 +88,7 @@ class EventRecyclerViewAdapter(
                 event_time.text = event.time.format(DateTimeFormatter.ofPattern("HH:mm"))
                 event_title.text = event.title
                 event_speaker.text = event.speakers.first().name
+                event_tags.removeAllViews()
                 event.tags.forEach {
                     val iconChip = getDrawable(context, R.drawable.shape_oval)
                     iconChip!!.mutate().setColorFilter(ColorProvider.getColor(it.name), PorterDuff.Mode.SRC_IN)
@@ -100,7 +102,7 @@ class EventRecyclerViewAdapter(
                     }
                     event_tags.addView(chip)
                 }
-                favorites.drawable.setColorFilter(if (event.isFavorite == null || !event.isFavorite!!) 0x000000 else 0xFF0000, PorterDuff.Mode.SRC_IN)
+                favorites.setImageDrawable(getDrawable(context, if (event.isFavorite == null || !event.isFavorite!!) R.drawable.ic_favorites else R.drawable.ic_favorites_red))
             }
         }
     }
