@@ -55,7 +55,6 @@ class MainActivity : AppCompatActivity(), ScheduleFragment.OnEventClickListener 
     private fun openFragment(fragment: Fragment) {
         supportFragmentManager.inTransaction {
             replace(R.id.container, fragment)
-            addToBackStack(null)
         }
     }
 }
