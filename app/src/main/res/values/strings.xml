@@ -6,4 +6,8 @@
     <string name="favorites">Избранное</string>
     <string name="info_rules_title">Правила конференции</string>
     <string name="info_contacts_title">Контакты</string>
+    <string name="info_about_title">Конференция</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
