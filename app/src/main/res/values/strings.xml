@@ -4,4 +4,6 @@
     <string name="info">Информация</string>
     <string name="schedule">Расписание</string>
     <string name="favorites">Избранное</string>
+    <string name="info_rules_title">Правила конференции</string>
+    <string name="info_contacts_title">Контакты</string>
 </resources>

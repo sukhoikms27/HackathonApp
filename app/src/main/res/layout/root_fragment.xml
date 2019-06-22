@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".RootFragment">
+        android:layout_width="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <Toolbar android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             android:background="@color/orange"
+             android:id="@+id/fragment_toolbar"
+    >
+
+        <ImageView
+                android:src="@drawable/logo"
+                android:layout_width="94dp"
+                android:layout_height="46dp"
+                android:id="@+id/imageView"/>
+    </Toolbar>
+    <FrameLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:context=".RootFragment">
 
 
-</FrameLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
