@@ -28,5 +28,6 @@ class MainActivity : AppCompatActivity(), ScheduleFragment.OnListFragmentInterac
             fragment = createFragment()
             supportFragmentManager.inTransaction { add(R.id.fragment_container, fragment, "lecturesList") }
         }
+
     }
 }

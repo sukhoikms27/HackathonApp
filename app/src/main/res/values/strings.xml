@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">HackathonApp</string>
     <string name="events">Мероприятия</string>
+    <string name="info">Информация</string>
+    <string name="schedule">Расписание</string>
+    <string name="favorites">Избранное</string>
 </resources>
