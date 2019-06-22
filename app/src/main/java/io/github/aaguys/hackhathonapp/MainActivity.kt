@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity(), ScheduleFragment.OnEventClickListener,
         navigation_view.apply {
             selectedItemId = R.id.action_schedules
             setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+            setOnNavigationItemReselectedListener { }
         }
 
         openFragment(ScheduleFragment())
