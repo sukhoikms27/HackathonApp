@@ -18,6 +18,8 @@ import io.github.aaguys.hackhathonapp.common.Event
 import io.github.aaguys.hackhathonapp.data.Repo
 import io.github.aaguys.hackhathonapp.use_cases.GetEventByIdUseCase
 import kotlinx.android.synthetic.main.event_details_fragment.*
+import org.threeten.bp.format.DateTimeFormatter
+import java.util.*
 
 class EventDetailsFragment : Fragment() {
 
@@ -88,8 +90,8 @@ class EventDetailsFragment : Fragment() {
 
             event_title.text = it.title
             event_speaker.text = it.speakers.first().name
-            event_time.text = it.time.toString()
-            event_room.text = "Room ${it.room}"
+            event_time.text = it.time.format(DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm", Locale.getDefault())).toString()
+            event_room.text = "Зал ${it.room}"
             event_description.text = it.about
             event_tags.text = it.tags.first().name
 
