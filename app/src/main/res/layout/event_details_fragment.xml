@@ -20,7 +20,7 @@
 
         <TextView
                 android:id="@+id/event_title"
-                tools:text="Free software and your freedom"
+                android:text="Free software and your freedom"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
 
         <TextView
                 android:id="@+id/event_speaker"
-                tools:text="Richard Stallman"
+                android:text="Richard Stallman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +50,7 @@
 
         <TextView
                 android:id="@+id/event_time"
-                tools:text="22 июня 2019, 10:15 - 11:00"
+                android:text="22 июня 2019, 10:15 - 11:00"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/event_speaker"
@@ -61,7 +61,7 @@
 
         <TextView
                 android:id="@+id/event_room"
-                tools:text="Зал Сова"
+                android:text="Зал Сова"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/event_time"
@@ -71,7 +71,7 @@
 
         <TextView
                 android:id="@+id/event_description"
-                tools:text="The Free Software Movement campaigns for computer users' freedom to cooperate and control their own computing. The Free Software Movement developed the GNU operating system, typically used together with the kernel Linux, specifically to make these freedoms possible. The Free Software Movement campaigns for computer users' freedom to cooperate and control their own computing. The Free Software Movement developed the GNU operating system, typically used together with the kernel Linux, specifically to make these freedoms possible."
+                android:text="The Free Software Movement campaigns for computer users' freedom to cooperate and control their own computing. The Free Software Movement developed the GNU operating system, typically used together with the kernel Linux, specifically to make these freedoms possible. The Free Software Movement campaigns for computer users' freedom to cooperate and control their own computing. The Free Software Movement developed the GNU operating system, typically used together with the kernel Linux, specifically to make these freedoms possible."
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/event_room"
@@ -95,7 +95,7 @@
                 android:id="@+id/event_tags"
                 android:layout_width="0dp"
                 android:layout_height="25dp"
-                tools:text="Tags"
+                android:text="Tags"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/tags"
                 android:textColor="@color/orange"
