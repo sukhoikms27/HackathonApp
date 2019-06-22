@@ -13,14 +13,17 @@
         <ImageView
                 android:id="@+id/author_photo"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@mipmap/stallman"
+                android:layout_height="250dp"
+                tools:src="@mipmap/stallman"
                 android:scaleType="centerCrop"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:contentDescription="photo"/>
 
         <TextView
                 android:id="@+id/event_title"
-                android:text="Free software and your freedom"
+                tools:text="Free software and your freedom"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +38,7 @@
 
         <TextView
                 android:id="@+id/event_speaker"
-                android:text="Richard Stallman"
+                tools:text="Richard Stallman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +53,7 @@
 
         <TextView
                 android:id="@+id/event_time"
-                android:text="22 июня 2019, 10:15 - 11:00"
+                tools:text="22 июня 2019, 10:15 - 11:00"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/event_speaker"
@@ -61,7 +64,7 @@
 
         <TextView
                 android:id="@+id/event_room"
-                android:text="Зал Сова"
+                tools:text="Зал Сова"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/event_time"
@@ -71,7 +74,7 @@
 
         <TextView
                 android:id="@+id/event_description"
-                android:text="The Free Software Movement campaigns for computer users' freedom to cooperate and control their own computing. The Free Software Movement developed the GNU operating system, typically used together with the kernel Linux, specifically to make these freedoms possible. The Free Software Movement campaigns for computer users' freedom to cooperate and control their own computing. The Free Software Movement developed the GNU operating system, typically used together with the kernel Linux, specifically to make these freedoms possible."
+                tools:text="The Free Software Movement campaigns for computer users' freedom to cooperate and control their own computing. The Free Software Movement developed the GNU operating system, typically used together with the kernel Linux, specifically to make these freedoms possible. The Free Software Movement campaigns for computer users' freedom to cooperate and control their own computing. The Free Software Movement developed the GNU operating system, typically used together with the kernel Linux, specifically to make these freedoms possible."
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/event_room"
@@ -86,7 +89,7 @@
                 android:id="@+id/tags"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_event_detail_tag"
+                tools:src="@drawable/ic_event_detail_tag"
                 app:layout_constraintTop_toBottomOf="@+id/event_description"
                 app:layout_constraintStart_toStartOf="@+id/event_description"
                 android:layout_marginTop="16dp"/>
@@ -95,7 +98,7 @@
                 android:id="@+id/event_tags"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Tags"
+                tools:text="Tags"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/tags"
                 android:textColor="@color/orange"
