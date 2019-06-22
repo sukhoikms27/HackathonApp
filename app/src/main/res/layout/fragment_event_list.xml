@@ -7,6 +7,7 @@
         android:name="io.github.aaguys.hackhathonapp.ScheduleFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/medium_margin_size"
         app:layoutManager="LinearLayoutManager"
         tools:context=".features.schedule.ScheduleFragment"
         tools:listitem="@layout/fragment_event"/>

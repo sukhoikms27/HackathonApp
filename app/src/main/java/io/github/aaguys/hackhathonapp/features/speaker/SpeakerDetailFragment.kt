@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import io.github.aaguys.hackhathonapp.R
 import kotlinx.android.synthetic.main.fragment_speaker_detail.*
-import java.util.*
 
 /**
  * A simple [Fragment] subclass.
@@ -65,20 +64,19 @@ class SpeakerDetailFragment : Fragment() {
         Log.d("222333", " id ${ev?.id} ${ev?.speakers?.first()?.photoUrl}")
 
         ev?.let {
-            val speakersUrl = it.speakers[0].photoUrl.toUri()
+            val speakersUrl = it.speakers.first().photoUrl.toUri()
             Glide
                 .with(this)
                 .load(speakersUrl)
                 //.apply(RequestOptions.)
                 .into(profile_image)
 
-//            event_title.text = it.title
-//            event_speaker.text = it.speakers.first().name
-//            event_time.text = it.time.format(DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm", Locale.getDefault())).toString()
-//            event_room.text = "Зал ${it.room}"
-//            event_description.text = it.about
-//            event_tags.text = it.tags.first().name
-            //tags.ser
+            ev.speakers.first().let {
+                speaker.text = it.name
+                biography.text = it.info
+
+
+            }
 
 
         }
