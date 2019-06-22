@@ -17,7 +17,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            app:itemBackground="@android:color/holo_orange_dark"
+            app:itemBackground="@color/colorPrimary"
             app:itemIconTint="@drawable/selector_bottom_nav"
             app:itemTextColor="@drawable/selector_bottom_nav"
             app:labelVisibilityMode="labeled"

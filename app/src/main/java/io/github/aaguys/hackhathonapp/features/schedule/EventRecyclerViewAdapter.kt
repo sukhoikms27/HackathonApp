@@ -43,13 +43,9 @@ class EventRecyclerViewAdapter(
         holder.bind(eventsList[position])
     }
 
-    fun setItems(events: Collection<Event>) {
+    fun setItems(events: List<Event>) {
         eventsList.addAll(events)
         notifyDataSetChanged()
-    }
-
-    fun getItems(): Collection<Event> {
-        return eventsList
     }
 
     inner class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

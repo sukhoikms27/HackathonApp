@@ -6,7 +6,41 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
     </style>
+
+    <style name="Text">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Text.Event">
+    </style>
+
+    <style name="Text.Event.Primary">
+        <item name="android:textSize">@dimen/primary_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Event.Secondary">
+        <item name="android:textSize">@dimen/secondary_text_size</item>
+        <item name="android:textColor">@color/gray_dove_light</item>
+    </style>
+
+    <style name="TextView">
+    </style>
+
+    <style name="TextView.Event">
+        <item name="android:textAppearance">@style/Text</item>
+        <!--<item name="android:padding">@dimen/small_margin_size</item>-->
+    </style>
+
+    <style name="TextView.Event.Primary">
+        <item name="android:textAppearance">@style/Text.Event.Primary</item>
+    </style>
+
+    <style name="TextView.Event.Secondary">
+        <item name="android:textAppearance">@style/Text.Event.Secondary</item>
+    </style>
+
 
 </resources>

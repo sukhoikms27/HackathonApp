@@ -20,14 +20,14 @@ object DbDummy:DbProvider {
         _schedule.value = listOf(
             Event(
                 id = "1",
-                title = "Title of Event",
+                title = "CatBoost — библиотека машинного обучения для решения практических задач с использованием больших данных",
                 about = "blah-blah",
                 time = LocalTime.of(18, 30),
                 tags = listOf(Tag("blah", 123)),
                 speakers = listOf(
                     Speaker(
                         id = "1",
-                        name = "SpeakerName",
+                        name = "Василий Ершов",
                         photoUrl = "",
                         job = "job",
                         info = "simple info",

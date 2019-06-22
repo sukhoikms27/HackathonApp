@@ -5,12 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.github.aaguys.hackhathonapp.R
 import io.github.aaguys.hackhathonapp.common.Event
 import io.github.aaguys.hackhathonapp.common.Speaker
 import io.github.aaguys.hackhathonapp.common.Tag
+import io.github.aaguys.hackhathonapp.data.Repo
+import io.github.aaguys.hackhathonapp.use_cases.GetEventByIdUseCase
 import kotlinx.android.synthetic.main.fragment_event_list.*
 import org.threeten.bp.LocalTime
 
@@ -103,7 +106,11 @@ class ScheduleFragment : Fragment() {
             eventsAdapter = EventRecyclerViewAdapter(listener)
             adapter = eventsAdapter
         }
-        eventsAdapter.setItems(eventsMock)
+        GetEventByIdUseCase(Repo(), "null").events?.let { eventsAdapter.setItems(it) } ?: Toast.makeText(
+            context,
+            "Sorry, something wrong",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     override fun onCreateView(
