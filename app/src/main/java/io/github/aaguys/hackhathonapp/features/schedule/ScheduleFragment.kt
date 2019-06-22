@@ -1,6 +1,5 @@
 package io.github.aaguys.hackhathonapp.features.schedule
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,13 +12,12 @@ import io.github.aaguys.hackhathonapp.common.Event
 import io.github.aaguys.hackhathonapp.common.Speaker
 import io.github.aaguys.hackhathonapp.common.Tag
 import kotlinx.android.synthetic.main.fragment_event_list.*
-import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalTime
 
 /**
  * A fragment representing a list of Items.
  * Activities containing this fragment MUST implement the
- * [ScheduleFragment.OnListFragmentInteractionListener] interface.
+ * [ScheduleFragment.OnEventClickListener] interface.
  */
 class ScheduleFragment : Fragment() {
 
@@ -44,7 +42,7 @@ class ScheduleFragment : Fragment() {
             room = "room 1"
 
         ), Event(
-            id = "1",
+            id = "2",
             title = "Title of Event",
             about = "blah-blah",
             time = LocalTime.of(18, 30),
@@ -63,7 +61,7 @@ class ScheduleFragment : Fragment() {
             room = "room 1"
 
         ), Event(
-            id = "1",
+            id = "3",
             title = "Title of Event",
             about = "blah-blah",
             time = LocalTime.of(18, 30),
@@ -88,7 +86,7 @@ class ScheduleFragment : Fragment() {
     // TODO: Customize parameters
     private var columnCount = 1
     private lateinit var eventsAdapter: EventRecyclerViewAdapter
-    private var listener: OnListFragmentInteractionListener? = null
+    private var listener: OnEventClickListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -118,10 +116,10 @@ class ScheduleFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnListFragmentInteractionListener) {
+        if (context is OnEventClickListener) {
             listener = context
         } else {
-            throw RuntimeException("$context must implement OnListFragmentInteractionListener")
+            throw RuntimeException("$context must implement OnEventClickListener")
         }
     }
 
@@ -130,9 +128,8 @@ class ScheduleFragment : Fragment() {
         listener = null
     }
 
-    interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onListFragmentInteraction(event: Event)
+    interface OnEventClickListener {
+        fun onEventClickListener(eventId: String)
     }
 
     companion object {

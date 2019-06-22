@@ -1,14 +1,83 @@
 package io.github.aaguys.hackhathonapp.data.db
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import io.github.aaguys.hackhathonapp.common.AboutConfData
 import io.github.aaguys.hackhathonapp.common.Event
+import io.github.aaguys.hackhathonapp.common.Speaker
+import io.github.aaguys.hackhathonapp.common.Tag
+import org.threeten.bp.LocalTime
 
 object DbDummy:DbProvider {
     override val favorites: LiveData<List<Event>>
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+
+    private val _schedule = MutableLiveData<List<Event>>()
+
     override val schedule: LiveData<List<Event>>
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+        get() = _schedule
+    init {
+        _schedule.value = listOf(
+            Event(
+                id = "1",
+                title = "Title of Event",
+                about = "blah-blah",
+                time = LocalTime.of(18, 30),
+                tags = listOf(Tag("blah", 123)),
+                speakers = listOf(
+                    Speaker(
+                        id = "1",
+                        name = "SpeakerName",
+                        photoUrl = "",
+                        job = "job",
+                        info = "simple info",
+                        links = null
+                    )
+                ),
+                isFavorite = false,
+                room = "room 1"
+
+            ), Event(
+                id = "2",
+                title = "Title of Event",
+                about = "blah-blah",
+                time = LocalTime.of(18, 30),
+                tags = listOf(Tag("blah", 123)),
+                speakers = listOf(
+                    Speaker(
+                        id = "1",
+                        name = "SpeakerName",
+                        photoUrl = "",
+                        job = "job",
+                        info = "simple info",
+                        links = null
+                    )
+                ),
+                isFavorite = false,
+                room = "room 1"
+
+            ), Event(
+                id = "3",
+                title = "Title of Event",
+                about = "blah-blah",
+                time = LocalTime.of(18, 30),
+                tags = listOf(Tag("blah", 123)),
+                speakers = listOf(
+                    Speaker(
+                        id = "1",
+                        name = "SpeakerName",
+                        photoUrl = "",
+                        job = "job",
+                        info = "simple info",
+                        links = null
+                    )
+                ),
+                isFavorite = false,
+                room = "room 1"
+
+            )
+        )
+    }
     override val aboutConf: LiveData<AboutConfData>
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 

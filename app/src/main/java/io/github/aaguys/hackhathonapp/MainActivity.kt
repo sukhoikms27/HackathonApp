@@ -1,33 +1,65 @@
 package io.github.aaguys.hackhathonapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import io.github.aaguys.hackhathonapp.common.Event
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import io.github.aaguys.hackhathonapp.features.schedule.EventDetailsFragment
 import io.github.aaguys.hackhathonapp.features.schedule.ScheduleFragment
 import io.github.aaguys.hackhathonapp.helpers.inTransaction
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), ScheduleFragment.OnListFragmentInteractionListener{
-    override fun onListFragmentInteraction(event: Event) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
-    private val layoutResId: Int
-        @LayoutRes
-        get() = R.layout.root_fragment
+class MainActivity : AppCompatActivity(), ScheduleFragment.OnEventClickListener {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutResId)
+        setContentView(R.layout.activity_main)
 
-        fun createFragment(): Fragment = ScheduleFragment.newInstance(1)
-
-        var fragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
-        if (fragment == null) {
-            fragment = createFragment()
-            supportFragmentManager.inTransaction { add(R.id.fragment_container, fragment, "lecturesList") }
+        navigation_view.apply {
+            selectedItemId = R.id.action_schedules
+            setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         }
 
+        openFragment(ScheduleFragment())
+    }
+
+    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
+        when (it.itemId) {
+            R.id.action_information -> {
+                openFragment(ScheduleFragment())
+                true
+            }
+            R.id.action_schedules -> {
+                openFragment(ScheduleFragment())
+                true
+            }
+            R.id.action_favorites -> {
+                openFragment(ScheduleFragment())
+                true
+            }
+            else -> false
+        }
+    }
+
+
+    override fun onEventClickListener(eventId: String) {
+        val eventDetailsFragment = EventDetailsFragment.newInstance(eventId)
+        supportFragmentManager.inTransaction {
+            replace(R.id.container, eventDetailsFragment, "eventDetails")
+            addToBackStack("eventDetails")
+        }
+    }
+
+    private fun openFragment(fragment: Fragment) {
+        supportFragmentManager.inTransaction {
+            replace(R.id.container, fragment)
+            addToBackStack(null)
+        }
     }
 }
+
+
+
+

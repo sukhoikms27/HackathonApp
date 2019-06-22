@@ -8,21 +8,19 @@ import androidx.recyclerview.widget.RecyclerView
 import io.github.aaguys.hackhathonapp.R
 import io.github.aaguys.hackhathonapp.common.Event
 import io.github.aaguys.hackhathonapp.dummy.DummyContent.DummyItem
-import io.github.aaguys.hackhathonapp.features.schedule.ScheduleFragment.OnListFragmentInteractionListener
-import kotlinx.android.synthetic.main.event_details_fragment.view.*
+import io.github.aaguys.hackhathonapp.features.schedule.ScheduleFragment.OnEventClickListener
 import kotlinx.android.synthetic.main.event_details_fragment.view.event_tags
-import kotlinx.android.synthetic.main.fragment_event.view.*
 import kotlinx.android.synthetic.main.fragment_event.view.event_speaker
 import kotlinx.android.synthetic.main.fragment_event.view.event_time
 import kotlinx.android.synthetic.main.fragment_event.view.event_title
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
- * specified [OnListFragmentInteractionListener].
+ * specified [OnEventClickListener].
  * TODO: Replace the implementation with code for your data type.
  */
 class EventRecyclerViewAdapter(
-    mListener: OnListFragmentInteractionListener?
+    mListener: OnEventClickListener?
 ) : RecyclerView.Adapter<EventRecyclerViewAdapter.EventViewHolder>() {
 
     private val eventsList = ArrayList<Event>()
@@ -59,7 +57,7 @@ class EventRecyclerViewAdapter(
 
         init {
             itemView.setOnClickListener {
-                onEventClickListener?.onListFragmentInteraction(eventsList[layoutPosition])
+                onEventClickListener?.onEventClickListener(eventsList[layoutPosition].id)
             }
         }
 
