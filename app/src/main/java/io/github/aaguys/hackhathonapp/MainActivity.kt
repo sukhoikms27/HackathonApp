@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import io.github.aaguys.hackhathonapp.features.info.InfoFragment
 import io.github.aaguys.hackhathonapp.features.schedule.EventDetailsFragment
 import io.github.aaguys.hackhathonapp.features.schedule.ScheduleFragment
 import io.github.aaguys.hackhathonapp.helpers.inTransaction
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity(), ScheduleFragment.OnEventClickListener 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
         when (it.itemId) {
             R.id.action_information -> {
-                openFragment(ScheduleFragment())
+                openFragment(InfoFragment())
                 true
             }
             R.id.action_schedules -> {
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity(), ScheduleFragment.OnEventClickListener 
             }
             else -> false
         }
+
     }
 
 
@@ -53,9 +55,16 @@ class MainActivity : AppCompatActivity(), ScheduleFragment.OnEventClickListener 
     }
 
     private fun openFragment(fragment: Fragment) {
-        supportFragmentManager.inTransaction {
-            replace(R.id.container, fragment)
-        }
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+            if (fragment !is ScheduleFragment)
+                supportFragmentManager.inTransaction {
+                    replace(R.id.container, fragment)
+                }
+        } else
+            supportFragmentManager.inTransaction {
+                replace(R.id.container, fragment)
+            }
     }
 }
 
