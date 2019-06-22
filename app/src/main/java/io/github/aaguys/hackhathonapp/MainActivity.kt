@@ -7,11 +7,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import io.github.aaguys.hackhathonapp.features.info.InfoFragment
 import io.github.aaguys.hackhathonapp.features.schedule.EventDetailsFragment
 import io.github.aaguys.hackhathonapp.features.schedule.ScheduleFragment
+import io.github.aaguys.hackhathonapp.features.speaker.SpeakerDetailFragment
 import io.github.aaguys.hackhathonapp.helpers.inTransaction
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), ScheduleFragment.OnEventClickListener {
+class MainActivity : AppCompatActivity(), ScheduleFragment.OnEventClickListener, EventDetailsFragment.OnSpeakerClickListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +52,13 @@ class MainActivity : AppCompatActivity(), ScheduleFragment.OnEventClickListener 
         supportFragmentManager.inTransaction {
             replace(R.id.container, eventDetailsFragment, "eventDetails")
             addToBackStack("eventDetails")
+        }
+    }
+
+    override fun onSpeakerClickListener(speakerId: String) {
+        val speakerDetailFragment = SpeakerDetailFragment.newInstance(speakerId)
+        supportFragmentManager.inTransaction { replace(R.id.container, speakerDetailFragment, "speakerDetails")
+            addToBackStack("speakerDetails")
         }
     }
 
