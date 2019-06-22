@@ -6,7 +6,7 @@ import io.github.aaguys.hackhathonapp.common.Event
 
 object DbDummy:DbProvider {
     override val favorites: LiveData<List<Event>>
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+        get() = TODO("not implemented")
     override val schedule: LiveData<List<Event>>
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
     override val aboutConf: LiveData<AboutConfData>
