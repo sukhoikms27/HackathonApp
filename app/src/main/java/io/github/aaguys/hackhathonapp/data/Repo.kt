@@ -8,7 +8,7 @@ import io.github.aaguys.hackhathonapp.data.converters.toConfData
 import io.github.aaguys.hackhathonapp.data.db.DbDummy
 import io.github.aaguys.hackhathonapp.data.network.NetworkDataProvider
 
-class Repo {
+object Repo {
     private val netDP = NetworkDataProvider
     private val db = DbDummy
 
