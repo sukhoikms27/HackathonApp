@@ -1,5 +1,6 @@
 package io.github.aaguys.hackhathonapp.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import io.github.aaguys.hackhathonapp.common.AboutConfData
@@ -14,8 +15,13 @@ object Repo {
 
     val schedule: LiveData<List<Event>>
         get() {
-            return if (!db.schedule.value.isNullOrEmpty()) db.schedule
-            else Transformations.map(netDP.dataFromNet) { it.toConfData().events }
+val r =Transformations.map(netDP.dataFromNet) { it.toConfData().events }
+//            val r =if (!db.schedule.value.isNullOrEmpty()) db.schedule
+//            else Transformations.map(netDP.dataFromNet) { it.toConfData().events }
+           Log.d("1233","${r.value?.size}")
+            return r
+
+
         }
 
     val favorites: LiveData<List<Event>>

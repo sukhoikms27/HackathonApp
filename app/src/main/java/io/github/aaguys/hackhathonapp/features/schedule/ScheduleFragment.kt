@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.github.aaguys.hackhathonapp.R
 import io.github.aaguys.hackhathonapp.common.Event
 import io.github.aaguys.hackhathonapp.common.Speaker
 import io.github.aaguys.hackhathonapp.common.Tag
+import io.github.aaguys.hackhathonapp.data.Repo
 import kotlinx.android.synthetic.main.fragment_event_list.*
 import org.threeten.bp.LocalTime
 
@@ -21,69 +24,11 @@ import org.threeten.bp.LocalTime
  */
 class ScheduleFragment : Fragment() {
 
-    val eventsMock = listOf(
-        Event(
-            id = "1",
-            title = "Title of Event",
-            about = "blah-blah",
-            time = LocalTime.of(18, 30),
-            tags = listOf(Tag("blah", 123)),
-            speakers = listOf(
-                Speaker(
-                    id = "1",
-                    name = "SpeakerName",
-                    photoUrl = "",
-                    job = "job",
-                    info = "simple info",
-                    links = null
-                )
-            ),
-            isFavorite = false,
-            room = "room 1"
-
-        ), Event(
-            id = "2",
-            title = "Title of Event",
-            about = "blah-blah",
-            time = LocalTime.of(18, 30),
-            tags = listOf(Tag("blah", 123)),
-            speakers = listOf(
-                Speaker(
-                    id = "1",
-                    name = "SpeakerName",
-                    photoUrl = "",
-                    job = "job",
-                    info = "simple info",
-                    links = null
-                )
-            ),
-            isFavorite = false,
-            room = "room 1"
-
-        ), Event(
-            id = "3",
-            title = "Title of Event",
-            about = "blah-blah",
-            time = LocalTime.of(18, 30),
-            tags = listOf(Tag("blah", 123)),
-            speakers = listOf(
-                Speaker(
-                    id = "1",
-                    name = "SpeakerName",
-                    photoUrl = "",
-                    job = "job",
-                    info = "simple info",
-                    links = null
-                )
-            ),
-            isFavorite = false,
-            room = "room 1"
-
-        )
-    )
 
 
-    // TODO: Customize parameters
+
+    private lateinit var viewModel:SchedulerViewModel
+
     private var columnCount = 1
     private lateinit var eventsAdapter: EventRecyclerViewAdapter
     private var listener: OnEventClickListener? = null
@@ -98,12 +43,17 @@ class ScheduleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(SchedulerViewModel::class.java)
+        viewModel.scheduler.observe(
+            this, Observer { list -> eventsAdapter.updateData(list) })
+        viewModel.reload()
         events_recycler_view.apply {
             layoutManager = LinearLayoutManager(activity)
             eventsAdapter = EventRecyclerViewAdapter(listener)
             adapter = eventsAdapter
         }
-        eventsAdapter.setItems(eventsMock)
+
+
     }
 
     override fun onCreateView(
