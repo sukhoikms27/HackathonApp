@@ -1,25 +1,18 @@
-package io.github.aaguys.hackhathonapp.features.schedule
+package io.github.aaguys.hackhathonapp.features.favorites
 
 
 import android.graphics.PorterDuff
-import android.graphics.drawable.GradientDrawable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.getDrawable
-import androidx.core.graphics.alpha
-import androidx.core.graphics.toColorInt
-import androidx.core.view.children
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.chip.Chip
 import io.github.aaguys.hackhathonapp.R
-import io.github.aaguys.hackhathonapp.common.ColorProvider
 import io.github.aaguys.hackhathonapp.common.Event
 import io.github.aaguys.hackhathonapp.dummy.DummyContent.DummyItem
+import io.github.aaguys.hackhathonapp.features.schedule.ItemDiffCallback
 import io.github.aaguys.hackhathonapp.features.schedule.ScheduleFragment.OnEventClickListener
-//import kotlinx.android.synthetic.main.event_details_fragment.view.event_tags
+import kotlinx.android.synthetic.main.event_details_fragment.view.event_tags
 import kotlinx.android.synthetic.main.fragment_event.view.*
 import org.threeten.bp.format.DateTimeFormatter
 
@@ -28,9 +21,9 @@ import org.threeten.bp.format.DateTimeFormatter
  * specified [OnEventClickListener].
  * TODO: Replace the implementation with code for your data type.
  */
-class EventRecyclerViewAdapter(
+class FavoritesRecyclerViewAdapter(
     mListener: OnEventClickListener?
-) : RecyclerView.Adapter<EventRecyclerViewAdapter.EventViewHolder>() {
+) : RecyclerView.Adapter<FavoritesRecyclerViewAdapter.EventViewHolder>() {
 
     private val eventsList = mutableListOf<Event>()
     private val onEventClickListener = mListener
@@ -88,21 +81,9 @@ class EventRecyclerViewAdapter(
                 event_time.text = event.time.format(DateTimeFormatter.ofPattern("HH:mm"))
                 event_title.text = event.title
                 event_speaker.text = event.speakers.first().name
-                event_tags.removeAllViews()
-                event.tags.forEach {
-                    val iconChip = getDrawable(context, R.drawable.shape_oval)
-                    iconChip!!.mutate().setColorFilter(ColorProvider.getColor(it.name), PorterDuff.Mode.SRC_IN)
-
-                    val chip = Chip(context).apply {
-                        text = it.name.capitalize()
-                        chipIcon = iconChip
-                        setChipIconSizeResource(R.dimen.text_margin)
-                        setIconStartPaddingResource(R.dimen.small_margin_size)
-
-                    }
-                    event_tags.addView(chip)
-                }
-                favorites.setImageDrawable(getDrawable(context, if (event.isFavorite == null || !event.isFavorite!!) R.drawable.ic_favorites else R.drawable.ic_favorites_red))
+                event_tags.text = event.tags.first().name
+                favorites.drawable.setColorFilter(if (event.isFavorite == null || !event.isFavorite!!) 0x000000 else 0xFF0000, PorterDuff.Mode.SRC_ATOP)
+                //(favorites.background.setColorFilter() as GradientDrawable).setColor(if (event.isFavorite!!) 0xFF0000 else 0xFF000000)
             }
         }
     }
